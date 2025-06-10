@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2c1145ce-61f6-456e-954d-26fdd17a3fe2",
-		"name": "KitaMeraki",
+		"name": "TaskManagementAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "463237"
 	},
@@ -376,6 +376,45 @@
 								{
 									"key": "organizationId",
 									"value": "org1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Summary",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"search\": {\r\n        \"priority\": \"low\",\r\n        \"title\": \"Task\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/Tasks/Summary?organizationId=org3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"Tasks",
+								"Summary"
+							],
+							"query": [
+								{
+									"key": "organizationId",
+									"value": "org3"
 								}
 							]
 						}

@@ -63,6 +63,7 @@ npm test
         GetFormSettings: [GET] http://localhost:7071/api/FormSettings/Get
         GetTask: [GET] http://localhost:7071/api/Tasks/Find
         GetTasks: [POST] http://localhost:7071/api/Tasks/Get
+        GetTaskSummary: [POST] http://localhost:7071/api/Tasks/Summary
         InsertFormSetting: [POST] http://localhost:7071/api/FormSettings/Insert
         InsertTask: [POST] http://localhost:7071/api/Tasks/Insert
         UpdateFormSetting: [PUT] http://localhost:7071/api/FormSettings/Update

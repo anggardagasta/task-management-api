@@ -5,6 +5,7 @@ import {UpdateTask} from "./Tasks/UpdateTask";
 import {DeleteTask} from "./Tasks/DeleteTask";
 import {BulkDeleteTasks} from "./Tasks/BulkDeleteTasks";
 import {GetTask} from "./Tasks/GetTask";
+import {GetTaskSummary} from "./Tasks/GetTaskSummary";
 
 app.http('InsertTask', {
     methods: ['POST'],
@@ -46,4 +47,11 @@ app.http('GetTask', {
     authLevel: 'anonymous',
     route: 'Tasks/Find',
     handler: GetTask
+});
+
+app.http('GetTaskSummary', {
+    methods: ['POST'],
+    authLevel: 'anonymous',
+    route: 'Tasks/Summary',
+    handler: GetTaskSummary
 });

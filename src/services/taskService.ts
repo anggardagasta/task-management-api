@@ -120,3 +120,34 @@ export async function findTask(taskId: string, organizationId: string): Promise<
 
     return task;
 }
+
+export async function getTaskStatusSummary(organizationId: string, search: Record<string, string>): Promise<{
+    statuses: string[],
+    tasks: { status: string }[]
+}> {
+    const container = await getCosmosContainer(COSMOS_DB_CONTAINER_TASKS);
+
+    // Get all possible statuses in the collection for this org (ignore search)
+    const statusQuery = "SELECT DISTINCT VALUE LOWER(c.status) FROM c WHERE c.organizationId = @organizationId AND IS_DEFINED(c.status)";
+    const statusParams = [{name: "@organizationId", value: organizationId}];
+    const {resources: statusList} = await container.items.query({
+        query: statusQuery,
+        parameters: statusParams
+    }).fetchAll();
+
+    // Get filtered tasks (with search)
+    let query = "SELECT c.status FROM c WHERE c.organizationId = @organizationId AND IS_DEFINED(c.status)";
+    const parameters: { name: string, value: any }[] = [{name: "@organizationId", value: organizationId}];
+    for (const key in search) {
+        if (Object.prototype.hasOwnProperty.call(search, key)) {
+            const paramName = `@${key}`;
+            query += ` AND CONTAINS(LOWER(c.${key}), LOWER(${paramName}))`;
+            parameters.push({name: paramName, value: search[key]});
+        }
+    }
+    const {resources: tasks} = await container.items.query({query, parameters}).fetchAll();
+    // Return all unique statuses (normalized, no duplicates)
+    const statuses = Array.from(new Set(statusList.map(s => String(s).toLowerCase().replace(/\s|_/g, "_"))));
+
+    return {statuses, tasks};
+}
