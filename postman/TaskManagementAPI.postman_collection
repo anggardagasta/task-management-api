@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "2c1145ce-61f6-456e-954d-26fdd17a3fe2",
+		"name": "KitaMeraki",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "463237"
+	},
+	"item": [
+		{
+			"name": "Form Settings",
+			"item": [
+				{
+					"name": "Insert",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationId\": \"org1\",\r\n    \"name\": \"formSettings\",\r\n    \"fields\": [\r\n      {\r\n        \"name\": \"title\",\r\n        \"label\": \"Title\",\r\n        \"type\": \"text\",\r\n        \"column\": \"Column 2\",\r\n        \"required\": true\r\n      },\r\n      {\r\n        \"name\": \"status\",\r\n        \"label\": \"Status\",\r\n        \"type\": \"dropdown\",\r\n        \"column\": \"Column 1\",\r\n        \"required\": true,\r\n        \"options\": [\"To Do\", \"In Progress\"]\r\n      }\r\n    ]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/FormSettings/Insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"FormSettings",
+								"Insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/FormSettings/Get?organizationId=org1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"FormSettings",
+								"Get"
+							],
+							"query": [
+								{
+									"key": "organizationId",
+									"value": "org1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationId\": \"org1\",\r\n    \"name\": \"formSettings\",\r\n    \"fields\": [\r\n      {\r\n        \"name\": \"title\",\r\n        \"label\": \"Title\",\r\n        \"type\": \"text\",\r\n        \"column\": \"Column 2\",\r\n        \"required\": true\r\n      },\r\n      {\r\n        \"name\": \"description\",\r\n        \"label\": \"Description\",\r\n        \"type\": \"textarea\",\r\n        \"column\": \"Column 2\",\r\n        \"required\": true\r\n      },\r\n      {\r\n        \"name\": \"status\",\r\n        \"label\": \"Status\",\r\n        \"type\": \"dropdown\",\r\n        \"column\": \"Column 1\",\r\n        \"required\": true,\r\n        \"options\": [\"To Do\", \"In Progress\", \"Completed\"]\r\n      }\r\n    ]\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/FormSettings/Update?id=992f0452-09aa-442d-b541-9191f68db341",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"FormSettings",
+								"Update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "992f0452-09aa-442d-b541-9191f68db341"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/FormSettings/Delete?id=6ddc5e92-e7e5-4ba7-935a-3837647d5bbf&organizationId=org1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"FormSettings",
+								"Delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6ddc5e92-e7e5-4ba7-935a-3837647d5bbf"
+								},
+								{
+									"key": "organizationId",
+									"value": "org1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Insert",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"organizationId\": \"org1\",\r\n    \"title\": \"Task 1\",\r\n    \"description\": \"Testing\",\r\n    \"status\": \"To Do\",\r\n    \"priority\": \"Low\",\r\n    \"assignee\": \"Aomine Daiki\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/Tasks/Insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"Tasks",
+								"Insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"page\": 1,\r\n  \"limit\": 10,\r\n  \"search\": {\r\n    \"title\": \"task\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/Tasks/Get?organizationId=org1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"Tasks",
+								"Get"
+							],
+							"query": [
+								{
+									"key": "organizationId",
+									"value": "org1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Task 1\",\r\n    \"description\": \"Testing\",\r\n    \"status\": \"To Do\",\r\n    \"priority\": \"Medium\",\r\n    \"assignee\": \"Aomine Daiki\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/Tasks/Update?id=419eabfc-e584-4112-a94a-bdf8a0eef5b2&organizationId=org1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"Tasks",
+								"Update"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "419eabfc-e584-4112-a94a-bdf8a0eef5b2"
+								},
+								{
+									"key": "organizationId",
+									"value": "org1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/Tasks/Delete?id=4a9e1993-e2ea-4244-a04e-981542f69144&organizationId=org1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"Tasks",
+								"Delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4a9e1993-e2ea-4244-a04e-981542f69144"
+								},
+								{
+									"key": "organizationId",
+									"value": "org1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bulk Delete",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"b271c354-b434-4160-ae38-ae6b10863d61\",\r\n    \"b271c354-b434-4160-ae38-ae6b10863d62\",\r\n    \"b271c354-b434-4160-ae38-ae6b10863d63\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7071/api/Tasks/BulkDelete?organizationId=org1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"Tasks",
+								"BulkDelete"
+							],
+							"query": [
+								{
+									"key": "organizationId",
+									"value": "org1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:7071/api/Tasks/Find?id=765447dc-da29-415c-ad3b-98e9a9a8eb83&organizationId=org1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7071",
+							"path": [
+								"api",
+								"Tasks",
+								"Find"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "765447dc-da29-415c-ad3b-98e9a9a8eb83"
+								},
+								{
+									"key": "organizationId",
+									"value": "org1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
